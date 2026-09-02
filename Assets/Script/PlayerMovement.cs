@@ -3,13 +3,17 @@ using UnityEngine.InputSystem;
 
 public class NewMonoBehaviourScript : MonoBehaviour
 {
-    float speed = 10f;
+
+    public float speed = 10f;
+    public float JumpForce = 15f;
     public Rigidbody AmongUs;
+
+    bool canJump = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-       
+     
     }
 
     // Update is called once per frame
