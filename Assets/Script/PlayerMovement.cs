@@ -5,9 +5,8 @@ public class NewMonoBehaviourScript : MonoBehaviour
 {
 
     public float speed = 5f;
-    public float JumpForce = 15f;
+    public float JumpForce = 10f;
     public Rigidbody oodi;
-
     bool canJump = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -21,19 +20,31 @@ public class NewMonoBehaviourScript : MonoBehaviour
     {
         if (Keyboard.current.wKey.IsPressed())
         {
-            oodi.AddForce(Vector3.forward * Time.fixedDeltaTime * speed, ForceMode.Impulse);
+            oodi.AddForce(transform.forward * Time.fixedDeltaTime * speed, ForceMode.Impulse);
         }
         if (Keyboard.current.sKey.IsPressed())
         {
-            oodi.AddForce(Vector3.back * Time.fixedDeltaTime * speed, ForceMode.Impulse);
+            oodi.AddForce(-transform.forward * Time.fixedDeltaTime * speed, ForceMode.Impulse);
         }
         if (Keyboard.current.aKey.IsPressed())
         {
-            oodi.AddForce(Vector3.left * Time.fixedDeltaTime * speed, ForceMode.Impulse);
+            oodi.AddForce(-transform.right * Time.fixedDeltaTime * speed, ForceMode.Impulse);
         }
         if (Keyboard.current.dKey.IsPressed())
         {
-            oodi.AddForce(Vector3.right * Time.fixedDeltaTime * speed, ForceMode.Impulse);
+            oodi.AddForce(transform.right * Time.fixedDeltaTime * speed, ForceMode.Impulse);
         }
+        if (Keyboard.current.spaceKey.IsPressed()&&canJump)
+        {
+            oodi.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
+        }
+        }
+    private void OnCollisionEnter(Collision collision)
+    {
+        canJump = true;
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        canJump = false;
     }
 }
