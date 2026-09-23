@@ -4,9 +4,9 @@ using UnityEngine.InputSystem;
 public class NewMonoBehaviourScript : MonoBehaviour
 {
 
-    public float speed = 10f;
+    public float speed = 5f;
     public float JumpForce = 15f;
-    public Rigidbody AmongUs;
+    public Rigidbody oodi;
 
     bool canJump = false;
 
@@ -21,19 +21,19 @@ public class NewMonoBehaviourScript : MonoBehaviour
     {
         if (Keyboard.current.wKey.IsPressed())
         {
-            AmongUs.AddForce(Vector3.forward * Time.fixedDeltaTime * speed, ForceMode.Impulse);
+            oodi.AddForce(Vector3.forward * Time.fixedDeltaTime * speed, ForceMode.Impulse);
         }
         if (Keyboard.current.sKey.IsPressed())
         {
-            AmongUs.AddForce(Vector3.back * Time.fixedDeltaTime * speed, ForceMode.Impulse);
+            oodi.AddForce(Vector3.back * Time.fixedDeltaTime * speed, ForceMode.Impulse);
         }
         if (Keyboard.current.aKey.IsPressed())
         {
-            AmongUs.AddForce(Vector3.left * Time.fixedDeltaTime * speed, ForceMode.Impulse);
+            oodi.AddForce(Vector3.left * Time.fixedDeltaTime * speed, ForceMode.Impulse);
         }
         if (Keyboard.current.dKey.IsPressed())
         {
-            AmongUs.AddForce(Vector3.right * Time.fixedDeltaTime * speed, ForceMode.Impulse);
+            oodi.AddForce(Vector3.right * Time.fixedDeltaTime * speed, ForceMode.Impulse);
         }
     }
 }
